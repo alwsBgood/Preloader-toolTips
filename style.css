@@ -1,0 +1,184 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html{font-family:Arial,Tahoma,sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}.my-logo{position:fixed;bottom:0;left:0;margin:0;padding:0}.my-logo__pic{border:0;vertical-align:middle;width:50px;height:50px}body{margin:0;padding:0;font:1em/1.4em sans-serif;color:#353535}
+
+                    /*Page*/
+
+body{
+    font: 1em/1.6em sans-serif;
+    text-align: center;
+}
+
+h1{
+    text-shadow: 2px 3px 5px rgba(0,0,0,.7);
+    margin: 50px 0;
+}
+
+
+.main{
+    width: 980px;
+    margin: 0 auto;
+    background: rgba(186,186,186,.7);
+    padding: 5px 30px ;
+    border-radius:  5px;
+}
+.button{
+    text-align: center;
+    margin: 20px 0;
+}
+
+                /*Шторы*/
+
+.pl{
+    position:fixed; 
+    width: 100%;
+    height: 100%;
+}
+
+
+.loaded .pl{
+    visibility: hidden;
+}
+
+.pl__l, .pl__r{
+    position: absolute;
+    background: #222;
+    width: 51%;
+    height: 100%;
+    transition: .5s .3s;
+    z-index: 99;
+}
+
+.pl__l{
+    left: 0;
+}
+
+.pl__r{
+    right: 0;
+}
+
+.loaded .pl__l{
+    transform: translate(-100%);
+}
+
+.loaded .pl__r{
+    transform: translate(100%);
+}
+
+
+
+
+                              /*Preloader*/
+
+.round1, .round1:before, .round1:after{
+    border: 4px solid transparent;
+    border-radius: 50%;
+}
+
+.round1{
+    height: 150px;
+    width: 150px;
+    top: 50%;
+    left: 50%;
+    margin: -75px 0 0 -75px;
+    position: absolute;
+    border-top-color: #F0FF45;
+    animation: spin 1s infinite linear;
+    z-index: 100;
+}
+
+.round1:before,
+.round1:after{
+    content:"";
+    position: absolute;
+}
+
+.round1:before{
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom:10px;
+    border-top-color: #00FFD8;
+    animation: spin 2s infinite linear;
+
+}
+.round1:after{
+    top: 24px;
+    left: 24px;
+    right: 23px;
+    bottom: 23px;
+    border-top-color: #FF5400;
+    animation: spin 3s infinite linear;
+}
+
+.loaded .round1{
+    display: none;
+    transition: .5s
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg)
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
+
+                    /*Tooltips*/
+.loaded .tooltip{
+    color: #6DF4F6;
+    text-shadow: 1px 1px black;
+    cursor: pointer;
+    text-decoration: underline;
+    position: relative;
+}
+
+.tooltip:before, 
+.tooltip:after{
+    display: block;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition:.5s all;
+    left: 50%;
+    margin-bottom: 15px;
+
+}
+
+.tooltip:before{
+    width:200px;
+    padding:8px;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    content: attr(data-title);
+    bottom: 30px;
+    margin-left: -100px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.tooltip:after{
+    content: "";
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top:10px solid rgba(0, 0, 0, 0.8);
+    margin-left: -10px;
+    bottom:20px;
+
+}
+.tooltip:hover:before,
+.tooltip:hover:after{
+    opacity: 1;
+    visibility: visible;
+    margin-bottom: 0;
+}
+
+.clearfix:before, .clearfix:after{
+  content: " ";
+  display: table;
+}
+.clearfix:after{
+  clear: both;
+}
+
+
